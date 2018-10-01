@@ -3,18 +3,16 @@ spring:
     profiles:
         active: dev
     datasource:
-        url: jdbc:h2:mem:mydemo;DB_CLOSE_DELAY=-1
-        username: mydemo
-        password:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:mysql://mysql:3306/sampledb
+        username: mysql
+        password: mysql
         hikari:
           maximumPoolSize: 4
-    h2:
-        console:
-            enabled: true
-            path: /h2-console
+
     jpa:
-        database-platform: org.hibernate.dialect.H2Dialect
-        database: H2
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        database: MYSQL
         show-sql: true
         hibernate.ddl-auto: none
         properties:
